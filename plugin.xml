@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<plugin xmlns="http://apache.org/cordova/ns/plugins/1.0"
+    id="eland-plugins-mdm"
+    version="1.0.0">
+    <name>ElandMDM</name>
+    <description>Eland Plguin MDM</description>
+    <license>MIT</license>
+    <keywords>Elnad, MDM</keywords>
+    <repo>https://github.com/june1249/eland-plugins-mdm.git</repo>
+    <issue>https://github.com/june1249/eland-plugins-mdm/issues</issue>
+
+    <js-module src="www/elandmdm.js" name="MDMPlugin">
+      <clobbers target="eland.plugins.mdm" />
+    </js-module>
+
+    <!-- android -->
+    <platform name="android">
+      <config-file target="res/xml/config.xml" parent="/*">
+        <feature name="MDMPlugin">
+          <param name="android-package" value="com.eland.plugins.MDMPlugin" />
+          <param name="onload" value="true" />
+        </feature>
+      </config-file>
+      <config-file target="AndroidManifest.xml" parent="/manifest">
+        <uses-permission android:name="android.permission.READ_PHONE_STATE"/>
+      </config-file>
+      <resource-file src="src/android/MDMLib_2_6_5_1.jar" target="libs/MDMLib_2_6_5_1.jar"/>
+
+      <source-file src="src/android/com/eland/plugins/MDMPlugin.java" target-dir="src/com/eland/plugins" />
+    </platform>
+</plugin>

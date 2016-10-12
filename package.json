@@ -1,0 +1,27 @@
+{
+  "name": "eland-plugins-mdm",
+  "version": "1.0.0",
+  "description": "Eland Plugins MDM",
+  "cordova": {
+    "id": "eland-plugins-mdm",
+    "platforms": [
+      "android"
+    ]
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/june1249/eland-plugins-mdm.git"
+  },
+  "keywords": [
+    "Eland",
+    "MDM",
+    "cordova-android"
+  ],
+  "author": "ElandSystems",
+  "license": "Apache 2.0",
+  "bugs": {
+    "url": "https://github.com/june1249/eland-plugins-mdm/issues"
+  },
+  "homepage": "https://github.com/june1249/eland-plugins-mdm#readme"
+
+}
