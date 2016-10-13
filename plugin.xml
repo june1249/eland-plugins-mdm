@@ -17,7 +17,7 @@
     <!-- android -->
     <platform name="android">
       <config-file target="res/xml/config.xml" parent="/*">
-        <feature name="MDMPlugin">
+        <feature name="MDM">
           <param name="android-package" value="com.eland.plugins.MDMPlugin" />
           <param name="onload" value="true" />
         </feature>
@@ -28,5 +28,19 @@
       <resource-file src="src/android/MDMLib_2_6_5_1.jar" target="libs/MDMLib_2_6_5_1.jar"/>
 
       <source-file src="src/android/com/eland/plugins/MDMPlugin.java" target-dir="src/com/eland/plugins" />
+    </platform>
+
+    <!-- ios -->
+    <platform name="ios">
+        <config-file target="config.xml" parent="/*">
+            <feature name="MDM">
+                <param name="ios-package" value="FFMDMPlugin" onload="true" />
+            </feature>
+        </config-file>
+
+        <header-file src="src/ios/FFMDMPlugin.h" />
+        <source-file src="src/ios/FFMDMPlugin.m" />
+        <header-file src="src/ios/MKLibrary.h" />
+        <source-file src="src/ios/libMKLibrary-2_10_01_25.a" framework="true" />
     </platform>
 </plugin>
