@@ -59,6 +59,6 @@
         <header-file src="src/ios/NSString+Extension.h" />
         <source-file src="src/ios/NSString+Extension.m" />
         <header-file src="src/ios/MKLibrary.h" />
-        <source-file src="src/ios/libMKLibrary-2_10_01_25.a" framework="true" />
+        <source-file src="src/ios/libMKLibrary-2_10_01_25.a" />
     </platform>
 </plugin>
