@@ -52,6 +52,12 @@
         <source-file src="src/ios/FFURLHelper.m" />
         <header-file src="src/ios/FFMDMPlugin.h" />
         <source-file src="src/ios/FFMDMPlugin.m" />
+        <header-file src="src/ios/NSBundle+Extension.h" />
+        <source-file src="src/ios/NSBundle+Extension.m" />
+        <header-file src="src/ios/NSDictionary+UrlEncoding.h" />
+        <source-file src="src/ios/NSDictionary+UrlEncoding.m" />
+        <header-file src="src/ios/NSString+Extension.h" />
+        <source-file src="src/ios/NSString+Extension.m" />
         <header-file src="src/ios/MKLibrary.h" />
         <source-file src="src/ios/libMKLibrary-2_10_01_25.a" framework="true" />
     </platform>
