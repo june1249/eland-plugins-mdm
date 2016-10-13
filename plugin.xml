@@ -42,6 +42,14 @@
         <source-file src="src/ios/FFEnvironmentInformationManager.m" />
         <header-file src="src/ios/FFNetworkHelper.h" />
         <source-file src="src/ios/FFNetworkHelper.m" />
+        <header-file src="src/ios/FFDateHelper.h" />
+        <source-file src="src/ios/FFDateHelper.m" />
+        <header-file src="src/ios/FFImageHelper.h" />
+        <source-file src="src/ios/FFImageHelper.m" />
+        <header-file src="src/ios/FFLocalizationHelper.h" />
+        <source-file src="src/ios/FFLocalizationHelper.m" />
+        <header-file src="src/ios/FFURLHelper.h" />
+        <source-file src="src/ios/FFURLHelper.m" />
         <header-file src="src/ios/FFMDMPlugin.h" />
         <source-file src="src/ios/FFMDMPlugin.m" />
         <header-file src="src/ios/MKLibrary.h" />
