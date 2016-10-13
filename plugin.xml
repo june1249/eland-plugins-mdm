@@ -38,6 +38,10 @@
             </feature>
         </config-file>
 
+        <header-file src="src/ios/FFEnvironmentInformationManager.h" />
+        <source-file src="src/ios/FFEnvironmentInformationManager.m" />
+        <header-file src="src/ios/FFNetworkHelper.h" />
+        <source-file src="src/ios/FFNetworkHelper.m" />
         <header-file src="src/ios/FFMDMPlugin.h" />
         <source-file src="src/ios/FFMDMPlugin.m" />
         <header-file src="src/ios/MKLibrary.h" />
