@@ -1,4 +1,4 @@
-Cordova Plugin Template
+Eland Plugins - MDM
 ======
 
-This is a simple starting point for building a Cordova plugin on iOS and Android.
+This is a Eland MDM for building a Cordova plugin on iOS and Android.
