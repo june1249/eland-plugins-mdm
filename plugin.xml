@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <plugin xmlns="http://apache.org/cordova/ns/plugins/1.0"
-    id="eland-plugins-mdm"
+    id="eland-plugin-mdm"
     version="1.0.0">
     <name>ElandMDM</name>
     <description>Eland Plguin MDM</description>
