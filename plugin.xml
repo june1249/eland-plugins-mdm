@@ -38,6 +38,8 @@
             </feature>
         </config-file>
 
+        <header-file src="src/ios/FFAppDelegate.h" />
+        <source-file src="src/ios/FFAppDelegate.m" />
         <header-file src="src/ios/FFEnvironmentInformationManager.h" />
         <source-file src="src/ios/FFEnvironmentInformationManager.m" />
         <header-file src="src/ios/FFNetworkHelper.h" />
