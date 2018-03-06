@@ -24,8 +24,12 @@
       </config-file>
       <config-file target="AndroidManifest.xml" parent="/manifest">
         <uses-permission android:name="android.permission.READ_PHONE_STATE"/>
+        <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+        <uses-permission android:name="android.permission.CHANGE_WIFI_STATE" />
+        <uses-permission android:name="android.permission.CHANGE_NETWORK_STATE" />
+        <uses-permission android:name="android.permission.INTERNET" />
       </config-file>
-      <resource-file src="src/android/MDMLib_2_6_5_1.jar" target="libs/MDMLib_2_6_5_1.jar"/>
+      <resource-file src="src/android/MDMLib_3_0_1_0.aar" target="libs/MDMLib_3_0_1_0.aar"/>
 
       <source-file src="src/android/com/eland/plugins/MDMPlugin.java" target-dir="src/com/eland/plugins" />
     </platform>

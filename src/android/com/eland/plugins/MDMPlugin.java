@@ -6,92 +6,112 @@ import java.util.HashMap;
 import java.util.List;
 
 import org.apache.cordova.CallbackContext;
+import org.apache.cordova.CordovaInterface;
 import org.apache.cordova.CordovaPlugin;
+import org.apache.cordova.CordovaWebView;
 import org.apache.cordova.PluginResult;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
 import com.jiransoft.mdm.library.MDMLib;
+import com.jiransoft.mdm.library.services.OnMangobananaCompleteListener;
 
 import android.content.Context;
+import android.os.Handler;
 import android.telephony.TelephonyManager;
 import android.util.Log;
 
-public class MDMPlugin extends CordovaPlugin {
-	
+public class MDMPlugin extends CordovaPlugin implements OnMangobananaCompleteListener {
+
+	private String LOG_TAG = "MDMPlugin";
 	private String CHECK_APP = "check_app";
-	private String authServer = "mdmssl.eland.co.kr:44400";
-	private String companyCode = "11121400";
+	private String authServer = "mdm30ssl.eland.co.kr";
+	private String authseverPort = "44300";
+	private String companyCode = "17121500";
 	private Context context;
+	private Handler mdmHandler;
+	private CallbackContext statusCallbackContext;
+
+	@Override
+	public void initialize(CordovaInterface cordova, CordovaWebView webView) {
+		super.initialize(cordova, webView);
+		Log.i(LOG_TAG, "initialize");
+		this.statusCallbackContext = null;
+		MDMLib.setOnMangobananaCompleteListener(this);
+	}
+
 	@Override
 	public boolean execute(String action, JSONArray args,
 			final CallbackContext callbackContext) throws JSONException {
-		
-		context = this.cordova.getActivity().getApplicationContext();
-		
-		if(action.equals(CHECK_APP)) {
-			final JSONObject status = new JSONObject();
-			this.cordova.getActivity().runOnUiThread(new Runnable() {
 
-				@Override
-				public void run() {
-					
-					String deviceID = "";					
-					String imei = getDeviceId(context);					
-					if(imei == null){
-						deviceID = null;
-					}else{
-						deviceID = imei;
-					}					
-					String packageName = getPackageName(context);
-					String locale = getLocale(context);
-					
-					Log.i("MDM", "deviceID : " + deviceID);
-					Log.i("MDM", "packageName : " + packageName);
-					Log.i("MDM", "locale : " + locale);
-					
-					HashMap<String, String> appAuthentication = MDMLib.appAuthentication(context, authServer, companyCode, "1111", deviceID);
-					
-					String codeKey = appAuthentication.get(MDMLib.CODE_KEY);
-					String message = appAuthentication.get(MDMLib.MESSAGE_KEY);
-					
-					Log.i("MDM", "codeKey : " + codeKey);
-					Log.i("MDM", "message : " + message);
-					
-					try{						
-						status.put("packageName", packageName);
-						status.put("locale", locale);
-						status.put("codeKey", codeKey);
-						status.put("message", message);						
-					}catch(Exception e){
-						
-					}
-					
-					PluginResult pluginResult = new PluginResult(PluginResult.Status.OK, status);
-		            pluginResult.setKeepCallback(true);
-		            callbackContext.sendPluginResult(pluginResult);					
-				}				
-			});
+		context = this.cordova.getActivity().getApplicationContext();
+
+		if(action.equals(CHECK_APP)) {
+			this.statusCallbackContext = callbackContext;
+//			final JSONObject status = new JSONObject();
+//			this.cordova.getActivity().runOnUiThread(new Runnable() {
+//
+//				@Override
+//				public void run() {
+//
+//					String deviceID = "";
+//					String imei = getDeviceId(context);
+//					if(imei == null){
+//						deviceID = null;
+//					}else{
+//						deviceID = imei;
+//					}
+//					String packageName = getPackageName(context);
+//					String locale = getLocale(context);
+//
+//					Log.i("MDM", "deviceID : " + deviceID);
+//					Log.i("MDM", "packageName : " + packageName);
+//					Log.i("MDM", "locale : " + locale);
+//
+//					HashMap<String, String> appAuthentication = MDMLib.appAuthentication(context, authServer, companyCode, "1111", deviceID);
+//
+//					String codeKey = appAuthentication.get(MDMLib.CODE_KEY);
+//					String message = appAuthentication.get(MDMLib.MESSAGE_KEY);
+//
+//					Log.i("MDM", "codeKey : " + codeKey);
+//					Log.i("MDM", "message : " + message);
+//
+//					try{
+//						status.put("packageName", packageName);
+//						status.put("locale", locale);
+//						status.put("codeKey", codeKey);
+//						status.put("message", message);
+//					}catch(Exception e){
+//
+//					}
+//
+//					PluginResult pluginResult = new PluginResult(PluginResult.Status.OK, status);
+//		            pluginResult.setKeepCallback(true);
+//		            callbackContext.sendPluginResult(pluginResult);
+//				}
+//			});
+			mdmHandler = new Handler();
+			MDMLib.mangobanana(cordova.getActivity(), mdmHandler, companyCode, authServer, authseverPort, "");
 			return true;
 		}
-		
+
 		return super.execute(action, args, callbackContext);
 	}
-	
+
 	private String getLocale(Context context) {
 		return context.getResources().getConfiguration().locale.getCountry();
 	}
-	
-	private String getDeviceId (Context context) {		
-		TelephonyManager tm = (TelephonyManager)context.getSystemService(context.TELEPHONY_SERVICE);		
-		return tm.getDeviceId();		
+
+	private String getDeviceId (Context context) {
+		TelephonyManager tm = (TelephonyManager)context.getSystemService(context.TELEPHONY_SERVICE);
+		return tm.getDeviceId();
 	}
-	
+
 	private String getPackageName(Context context) {
 		return context.getPackageName();
 	}
-	
+
 	private String getMacAddress() {
 		try {
 	        List<NetworkInterface> all = Collections.list(NetworkInterface.getNetworkInterfaces());
@@ -118,4 +138,27 @@ public class MDMPlugin extends CordovaPlugin {
 	    return "02:00:00:00:00:00";
 	}
 
+	@Override
+	public void onMangobananaComplete(String code, String message) {
+
+		String packageName = getPackageName(context);
+		String locale = getLocale(context);
+
+		Log.d(LOG_TAG, "ID: " + message);
+
+		final JSONObject status = new JSONObject();
+		try{
+			status.put("packageName", packageName);
+			status.put("locale", locale);
+			status.put("codeKey", code);
+			status.put("message", message);
+		}catch(Exception e){
+
+		}
+
+		PluginResult pluginResult = new PluginResult(PluginResult.Status.OK, status);
+		pluginResult.setKeepCallback(true);
+		this.statusCallbackContext.sendPluginResult(pluginResult);
+
+	}
 }
