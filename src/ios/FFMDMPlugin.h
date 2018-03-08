@@ -7,9 +7,14 @@
 //
 
 #import <Cordova/CDVPlugin.h>
+#import "MKLibrary.h"
 
-@interface FFMDMPlugin : CDVPlugin
-
+@interface FFMDMPlugin : CDVPlugin <MKLibraryDelegate>
+{
+    MKLibrary *library;
+    NSString *callbackId;
+    NSDictionary *loginData;
+    CDVPluginResult* pluginResult;
+}
 @end
-
 
