@@ -15,7 +15,7 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import com.jiransoft.mdm.library.MDMLib;
-import com.jiransoft.mdm.library.services.OnMangobananaCompleteListener;
+import com.jiransoft.mdm.library.Services.OnMangobananaCompleteListener;
 
 import android.content.Context;
 import android.os.Handler;
@@ -49,48 +49,6 @@ public class MDMPlugin extends CordovaPlugin implements OnMangobananaCompleteLis
 
 		if(action.equals(CHECK_APP)) {
 			this.statusCallbackContext = callbackContext;
-//			final JSONObject status = new JSONObject();
-//			this.cordova.getActivity().runOnUiThread(new Runnable() {
-//
-//				@Override
-//				public void run() {
-//
-//					String deviceID = "";
-//					String imei = getDeviceId(context);
-//					if(imei == null){
-//						deviceID = null;
-//					}else{
-//						deviceID = imei;
-//					}
-//					String packageName = getPackageName(context);
-//					String locale = getLocale(context);
-//
-//					Log.i("MDM", "deviceID : " + deviceID);
-//					Log.i("MDM", "packageName : " + packageName);
-//					Log.i("MDM", "locale : " + locale);
-//
-//					HashMap<String, String> appAuthentication = MDMLib.appAuthentication(context, authServer, companyCode, "1111", deviceID);
-//
-//					String codeKey = appAuthentication.get(MDMLib.CODE_KEY);
-//					String message = appAuthentication.get(MDMLib.MESSAGE_KEY);
-//
-//					Log.i("MDM", "codeKey : " + codeKey);
-//					Log.i("MDM", "message : " + message);
-//
-//					try{
-//						status.put("packageName", packageName);
-//						status.put("locale", locale);
-//						status.put("codeKey", codeKey);
-//						status.put("message", message);
-//					}catch(Exception e){
-//
-//					}
-//
-//					PluginResult pluginResult = new PluginResult(PluginResult.Status.OK, status);
-//		            pluginResult.setKeepCallback(true);
-//		            callbackContext.sendPluginResult(pluginResult);
-//				}
-//			});
 			mdmHandler = new Handler();
 			MDMLib.mangobanana(cordova.getActivity(), mdmHandler, companyCode, authServer, authseverPort, "");
 			return true;
