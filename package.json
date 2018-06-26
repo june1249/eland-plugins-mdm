@@ -5,7 +5,8 @@
   "cordova": {
     "id": "eland-plugins-mdm",
     "platforms": [
-      "android"
+      "android",
+      "ios"
     ]
   },
   "repository": {
