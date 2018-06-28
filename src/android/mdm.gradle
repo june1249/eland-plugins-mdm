@@ -6,7 +6,7 @@ repositories{
 }
 
 dependencies {
-    compile(name:'MDMLib_3_0_2_1', ext:'aar')
+    compile(name:'MDMLib_3_0_1_0', ext:'aar')
 }
 
 android {
