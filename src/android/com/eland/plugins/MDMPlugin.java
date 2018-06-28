@@ -48,6 +48,7 @@ public class MDMPlugin extends CordovaPlugin implements OnMangobananaCompleteLis
 		context = this.cordova.getActivity().getApplicationContext();
 
 		if(action.equals(CHECK_APP)) {
+			Log.i(LOG_TAG, "check_app");
 			this.statusCallbackContext = callbackContext;
 			mdmHandler = new Handler();
 			MDMLib.mangobanana(cordova.getActivity(), mdmHandler, companyCode, authServer, authseverPort, "");
@@ -102,6 +103,7 @@ public class MDMPlugin extends CordovaPlugin implements OnMangobananaCompleteLis
 		String packageName = getPackageName(context);
 		String locale = getLocale(context);
 
+		Log.i(LOG_TAG, "code: " + code);
 		Log.d(LOG_TAG, "ID: " + message);
 
 		final JSONObject status = new JSONObject();
