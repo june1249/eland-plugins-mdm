@@ -15,7 +15,7 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import com.jiransoft.mdm.library.MDMLib;
-import com.jiransoft.mdm.library.services.OnMangobananaCompleteListener;
+import com.jiransoft.mdm.library.Services.OnMangobananaCompleteListener;
 
 import android.content.Context;
 import android.os.Handler;
