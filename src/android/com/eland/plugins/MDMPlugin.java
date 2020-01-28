@@ -50,7 +50,7 @@ public class MDMPlugin extends CordovaPlugin implements OnMangobananaCompleteLis
 		if(action.equals(CHECK_APP)) {
 			Log.i(LOG_TAG, "check_app");
 			this.statusCallbackContext = callbackContext;
-			mdmHandler = new Handler();
+			mdmHandler = new Handler(); 
 			MDMLib.mangobanana(cordova.getActivity(), mdmHandler, companyCode, authServer, authseverPort, "");
 			return true;
 		}
