@@ -1,11 +1,15 @@
 repositories{
     jcenter()
+    maven {
+        url "https://maven.google.com"
+    }
     flatDir{
         dirs 'libs'
     }
 }
 
 dependencies {
+    compile 'com.android.support:support-v4:+'
     compile(name:'MDMLib_3_0_2_7', ext:'aar')
     /*compile(name:'MDMLib_3_0_2_1', ext:'aar')*/
 }
