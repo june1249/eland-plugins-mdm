@@ -5,11 +5,6 @@ repositories{
     }
 }
 
-
-task wrapper(type: Wrapper) {
-    gradleVersion = '2.14.1'
-}
-
 dependencies {
     compile(name:'MDMLib_3_0_2_7', ext:'aar')
     /*compile(name:'MDMLib_3_0_2_1', ext:'aar')*/
