@@ -30,9 +30,9 @@
         <uses-permission android:name="android.permission.INTERNET" />
       </config-file>
       <framework src="src/android/mdm.gradle" custom="true" type="gradleReference" />
-      <framework src="com.android.support:support-v4:$ANDROID_SUPPORT_V4_VERSION"/>
+      <framework src="com.android.support:support-v4:27.+"/>
       <lib-file src="src/android/MDMLib_3_0_2_7.aar" target="libs/MDMLib_3_0_2_7.aar"/>
-      <preference name="ANDROID_SUPPORT_V4_VERSION" default="27.+"/>
+      <!--preference name="ANDROID_SUPPORT_V4_VERSION" default="27.+"/-->
       <framework src="com.android.support:support-v4:27.+"/>
 
       <lib-file src="src/android/MDMLib_3_0_2_7.aar" target="libs/MDMLib_3_0_2_7.aar"/>
