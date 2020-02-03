@@ -13,7 +13,6 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import com.eland.rbms.MainActivity;
 import com.jiransoft.mdm.library.MDMLib;
 import com.jiransoft.mdm.library.Services.OnMangobananaCompleteListener;
 
