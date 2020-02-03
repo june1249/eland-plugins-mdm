@@ -30,11 +30,10 @@
         <uses-permission android:name="android.permission.INTERNET" />
       </config-file>
       <framework src="src/android/mdm.gradle" custom="true" type="gradleReference" />
-      <framework src="com.android.support:support-v4:27.+"/>
+      <!--framework src="com.android.support:support-v4:$ANDROID_SUPPORT_V4_VERSION"/-->
       <lib-file src="src/android/MDMLib_3_0_2_7.aar" target="libs/MDMLib_3_0_2_7.aar"/>
       <!--preference name="ANDROID_SUPPORT_V4_VERSION" default="27.+"/-->
-      <framework src="com.android.support:support-v4:27.+"/>
-
+      <!--framework src="com.android.support:support-v4:27.+"/-->
       <lib-file src="src/android/MDMLib_3_0_2_7.aar" target="libs/MDMLib_3_0_2_7.aar"/>
       <source-file src="src/android/com/eland/plugins/MDMPlugin.java" target-dir="src/com/eland/plugins" />
     </platform>
