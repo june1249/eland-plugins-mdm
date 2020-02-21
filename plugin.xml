@@ -30,7 +30,7 @@
         <uses-permission android:name="android.permission.INTERNET" />
       </config-file>
       <framework src="src/android/mdm.gradle" custom="true" type="gradleReference" />
-      <lib-file src="src/android/MDMLib_3_0_2_7.aar" target="libs/MDMLib_3_0_2_7.aar"/>
+      <lib-file src="src/android/MDMLib_3_0_2_9.aar" target="libs/MDMLib_3_0_2_9.aar"/>
       <source-file src="src/android/com/eland/plugins/MDMPlugin.java" target-dir="src/com/eland/plugins" />
     </platform>
 
