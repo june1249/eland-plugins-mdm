@@ -66,7 +66,7 @@ public class MDMPlugin extends CordovaPlugin implements OnMangobananaCompleteLis
 
 			mHandler = new Handler();
 			mMDMLib.setOnMangobananaCompleteListener(this);
-			mMDMLib.startCurrentStatusCheckService(activity, null);
+			//mMDMLib.startCurrentStatusCheckService(activity, null);
 
 
 			// OS 6.0 이상인 경우 전화 권한 활성화 유도 (단말의 고유값 추출하는데 사용)
