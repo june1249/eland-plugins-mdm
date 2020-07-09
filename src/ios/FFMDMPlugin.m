@@ -53,9 +53,9 @@
     NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
     
     
-    [library mangobanana:Basic_CompanyCode
-                  domain:Basic_MDM_Middleware_Host
-                    port:Basic_MDM_Middleware_Port
+    [library mangobanana:"17121500"
+                  domain:"mdm30ssl.eland.co.kr"
+                    port:"44300"
                   userID:@""
                 deviceID:[userDefaults objectForKey:@"wifimac"]];
     
