@@ -7,8 +7,8 @@
     <description>Eland Plguin MDM</description>
     <license>MIT</license>
     <keywords>Elnad, MDM</keywords>
-    <repo>https://github.com/june1249/eland-plugins-mdm.git</repo>
-    <issue>https://github.com/june1249/eland-plugins-mdm/issues</issue>
+    <repo>https://github.com/lodosswkor/eland-plugins-mdm.git</repo>
+    <issue>https://github.com/lodosswkor/eland-plugins-mdm/issues</issue>
 
     <js-module src="www/elandmdm.js" name="MDMPlugin">
       <clobbers target="cordova.plugins.mdm" />
@@ -30,9 +30,7 @@
         <uses-permission android:name="android.permission.INTERNET" />
       </config-file>
       <framework src="src/android/mdm.gradle" custom="true" type="gradleReference" />
-      <framework src="com.android.support:support-v4:$ANDROID_SUPPORT_V4_VERSION"/>
-      <lib-file src="src/android/MDMLib_3_0_2_1.aar" target="libs/MDMLib_3_0_2_1.aar"/>
-      <preference name="ANDROID_SUPPORT_V4_VERSION" default="27.+"/>
+      <lib-file src="src/android/MDMLib_3_0_2_9.aar" target="libs/MDMLib_3_0_2_9.aar"/>
       <source-file src="src/android/com/eland/plugins/MDMPlugin.java" target-dir="src/com/eland/plugins" />
     </platform>
 
@@ -67,6 +65,6 @@
         <header-file src="src/ios/NSString+Extension.h" />
         <source-file src="src/ios/NSString+Extension.m" />
         <header-file src="src/ios/MKLibrary.h" />
-        <source-file src="src/ios/libMKLibrary_V3_0_1_0.a" framework="true" />
+        <source-file src="src/ios/libMKLibrary_V3_0_2_6.a" framework="true" />
     </platform>
 </plugin>

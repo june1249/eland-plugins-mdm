@@ -6,7 +6,8 @@ repositories{
 }
 
 dependencies {
-    compile(name:'MDMLib_3_0_2_1', ext:'aar')
+    compile 'com.android.support:support-v4:+'
+    compile(name:'MDMLib_3_0_2_9', ext:'aar')
 }
 
 android {
